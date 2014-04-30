@@ -1,0 +1,46 @@
+<?php
+
+
+function rebuild ($item) {
+$memory = NULL;  //переменная с предыдущей или нулевой буквой
+$new_array= array();
+foreach ($item as $value) {
+$letters = mb_substr ( $value, 0, 1, 'UTF-8'); //получаем первую букву
+echo $letters;
+	if ($letters != $memory) {
+		$memory = $letters;        //присвоить букву в память для будущего
+		$new_array[$letters] = array(); //то добавить букву в массив
+		$new_array[$letters][] = $value; //запись значения
+		
+	}
+	else {
+		$new_array[$letters][] = $value;
+	}	
+}
+$array = $new_array;
+echo '<pre>';
+print_r ($array);
+echo '<pre>';
+}
+
+
+ 
+
+// Функция 'funct' выведет строку 'Параметр = 777' дважды
+
+
+
+
+$item = array ("Angarsk", "Alzamay", "Algashet", "Bratsk", "Barnaul");
+rebuild($item);
+
+
+
+ 
+
+echo '<pre>';
+print_r($new_array);
+echo '<pre>';
+
+
+?>
