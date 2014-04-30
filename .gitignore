@@ -7,14 +7,15 @@ $new_array= array();
 foreach ($item as $value) {
 $letters = mb_substr ( $value, 0, 1, 'UTF-8'); //получаем первую букву
 echo $letters;
-	if ($letters != $memory) {
-		$memory = $letters;        //присвоить букву в память для будущего
-		$new_array[$letters] = array(); //добавить букву в массив
-		$new_array[$letters][] = $value; //запись значения
+	if ($memory = $letters ) {
+			$new_array[$letters][] = $value;
 		
 	}
 	else {
-		$new_array[$letters][] = $value;
+	
+		$memory = $letters;        //присвоить букву в память для будущего
+		$new_array[$letters] = array(); //то добавить букву в массив
+		$new_array[$letters][] = $value; //запись значения
 	}	
 }
 $array = $new_array;
@@ -35,7 +36,12 @@ $item = array ("Angarsk", "Alzamay", "Algashet", "Bratsk", "Barnaul");
 rebuild($item);
 
 
-
+$a = NULL;
+$b = 2;
+ if ($b = $a) {
+	echo 'error';}
+else { echo 'zaebis';
+ }
  
 
 echo '<pre>';
