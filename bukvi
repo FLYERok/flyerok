@@ -1,0 +1,81 @@
+<?php
+//http://forum.php.su/topic.php?forum=79&topic=3498
+$array = array("Angarsk", "Alzamay", "Bratsk", "Volgograd", "Moscow", "Minsk","Ангарск", "Братск", "Биробиджан");
+$m = 3;
+foreach($array as $key=>$value){
+	echo $key, '->', $value;
+}
+
+
+$memory = NULL;
+$new_array = array();
+
+	
+	foreach ($array as $value) {
+	$letters = mb_substr ($value, 0, 1, 'UTF-8');
+	$memory = $letters;
+		if($letters = $memory) {
+		$new_array[$letters][]= $value;
+		}
+		else {
+		$new_array[$letters] = array();
+		$new_array[$letters][]= $value;
+		}
+	}
+	
+	
+	$a = array
+			(array(
+				"A"=> array("Angarsk","Alzamay")
+				   ),
+			array(
+				"B"=> array("Bratsk")
+				  )
+		);
+					
+					
+
+
+	$k=0;
+	
+	foreach($a as $key => $value){
+		echo $key;
+		}
+		
+		
+		
+		echo '<pre>';
+print_r ($a);
+echo '<pre>';
+	
+	
+	$col = 3;
+	$items = count($new_array);
+	echo $items;
+	$row = ceil($items/$col); //количество строк в столбце
+	echo $row;
+	$k=0;
+
+echo '<table>';
+		echo '<tr>';
+			for($i=0; $i<3; $i++) {
+				echo '<td>';
+					for($j=0; $j<$row; $j++) {
+					
+					echo $array[$k], '<br>';
+					$k+=1;
+					}
+				
+				
+				
+				echo '</td>';
+			}
+	
+	
+echo '</table>';
+	
+	echo '<pre>';
+print_r ($new_array);
+echo '<pre>';
+
+?>
